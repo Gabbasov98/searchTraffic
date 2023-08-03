@@ -1,0 +1,84 @@
+@mixin font-face($name, $file, $weight: 400, $style: normal) {
+    @font-face {
+        font-family: "#{$name}";
+        src: url('../fonts/#{$file}.ttf') format('ttf'),
+        url('../fonts/#{$file}.woff') format('woff');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
+}
+
+@include font-face('Druk Cyr',
+'DrukCyr-Medium',
+500);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    font-family: 'Druk Cyr', sans-serif;
+    font-weight: 500;
+    background-image: url(../img//bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 26px 0 44px;
+    color: #fff;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header,
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0 25px;
+}
+
+.header__link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.header__link,
+.footer__street {
+    color: #fff;
+    font-size: 25px;
+    line-height: 130%;
+}
+
+.title {
+    font-size: 120px;
+    line-height: 128%;
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+    .page {
+        padding-bottom: 24px;
+    }
+    .title {
+        font-size: 90px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title {
+        font-size: 70px;
+    }
+}
